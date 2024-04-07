@@ -5,7 +5,6 @@ const min = 1;
 
 let randomNum = Math.floor(Math.random() * (max - min) + min);
 let highScore = +document.querySelector('.highscore').textContent;
-console.log(randomNum);
 
 document.querySelector('.check').addEventListener('click', function () {
   let userInput = +document.querySelector('.guess').value;
@@ -31,4 +30,14 @@ document.querySelector('.check').addEventListener('click', function () {
       document.body.style.backgroundColor = '#8b0000';
     }
   }
+});
+document.querySelector('.again').addEventListener('click', function () {
+  randomNum = Math.floor(Math.random() * (max - min) + min);
+  document.body.style.backgroundColor = '#222';
+  document.querySelector('.guess').disabled = false;
+  document.querySelector('.check').disabled = false;
+  document.querySelector('.guess').value = '';
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.score').textContent = '20';
 });
